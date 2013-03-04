@@ -1,19 +1,24 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'foy-ruby-parser/version'
+require 'foy_ruby_parser/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "foy-ruby-parser"
+  gem.name          = "foy_ruby_parser"
   gem.version       = Foy::Ruby::Parser::VERSION
   gem.authors       = ["Roberto Soares"]
   gem.email         = ["roberto.tech@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.summary       = %q{Gemfile/gemspec parser used by foy-worker}
+  gem.description   = %q{Gemfile/gemspec parser used by foy-worker}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+
+  gem.add_dependency('bundler', '>= 1.3.1')
+
+  gem.add_development_dependency('rake', '>= 10.0.3')
+  gem.add_development_dependency('rspec', '>= 2.13.0')
 end
