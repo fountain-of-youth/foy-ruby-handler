@@ -1,7 +1,7 @@
 module Foy
   module Ruby
-    module Parser
-      VERSION = "0.0.1"
+    module Handler
+      VERSION = "0.0.2"
     end
   end
 end
