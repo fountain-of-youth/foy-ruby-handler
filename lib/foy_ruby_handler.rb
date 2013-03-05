@@ -1,6 +1,6 @@
 require "bundler"
-require "foy_ruby_handler/version"
-require "foy_ruby_handler/cli"
+require_relative "foy_ruby_handler/version"
+require_relative "foy_ruby_handler/cli"
 
 module Foy
   module RubyHandler
