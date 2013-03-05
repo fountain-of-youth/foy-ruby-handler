@@ -1,18 +1,20 @@
 require 'spec_helper'
 
-require 'foy_ruby_handler'
-
-describe Foy::Ruby::Handler do
+describe Foy::RubyHandler do
 
   describe "#parse" do
     context "Gemfile.lock" do
+      let(:parse!) {Foy::RubyHandler.parse("spec/fixtures/Gemfile")} 
+
       it "uses bundler parser" do
-        Bundler::LockfileParser.should_receive(:new).with("Gemfile content\n").and_return(nil)
-        Foy::Ruby::Handler.parse("spec/fixtures/Gemfile")
+        Bundler::LockfileParser.should_receive(:new)
+          .with("GEM\n  remote: http://rubygems.org/\n  specs:\n    package (1.7.1)\n")
+          .and_call_original
+        parse!
       end
 
       it "returns current dependencies (name and version)" do
-        Foy::Ruby::Handler.parse("spec/fixtures/Gemfile.lock").specs.collect{|d| [d.name, d.version]}
+        expect(parse!).to be_eql("package 1.7.1")
       end
     end
 
@@ -24,12 +26,12 @@ describe Foy::Ruby::Handler do
 
     it "uses rubygem" do
       Gem.should_receive(:latest_version_for).with("package").and_return(version)
-      Foy::Ruby::Handler.latest_version_for("package")
+      Foy::RubyHandler.latest_version_for("package")
     end
 
     it "returns version as string" do
       Gem.stub(:latest_version_for).with("package").and_return(version)
-      expect(Foy::Ruby::Handler.latest_version_for("package")).to be_eql("2.0.1")
+      expect(Foy::RubyHandler.latest_version_for("package")).to be_eql("2.0.1")
     end
   end
 end

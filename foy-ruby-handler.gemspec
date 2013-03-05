@@ -5,7 +5,7 @@ require 'foy_ruby_handler'
 
 Gem::Specification.new do |gem|
   gem.name          = "foy_ruby_handler"
-  gem.version       = Foy::Ruby::Handler::VERSION
+  gem.version       = Foy::RubyHandler::VERSION
   gem.authors       = ["Roberto Soares"]
   gem.email         = ["roberto.tech@gmail.com"]
   gem.summary       = %q{Gemfile/gemspec handler used by foy-worker}

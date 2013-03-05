@@ -1,7 +1,5 @@
 module Foy
-  module Ruby
-    module Handler
-      VERSION = "0.0.2"
-    end
+  module RubyHandler
+    VERSION = "0.0.2"
   end
 end
