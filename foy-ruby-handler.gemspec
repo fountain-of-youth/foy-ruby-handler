@@ -1,15 +1,15 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'foy_ruby_parser/version'
+require 'foy_ruby_handler'
 
 Gem::Specification.new do |gem|
-  gem.name          = "foy_ruby_parser"
-  gem.version       = Foy::Ruby::Parser::VERSION
+  gem.name          = "foy_ruby_handler"
+  gem.version       = Foy::Ruby::Handler::VERSION
   gem.authors       = ["Roberto Soares"]
   gem.email         = ["roberto.tech@gmail.com"]
-  gem.summary       = %q{Gemfile/gemspec parser used by foy-worker}
-  gem.description   = %q{Gemfile/gemspec parser used by foy-worker}
+  gem.summary       = %q{Gemfile/gemspec handler used by foy-worker}
+  gem.description   = %q{Gemfile/gemspec handler used by foy-worker}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)

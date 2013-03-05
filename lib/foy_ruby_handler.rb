@@ -1,9 +1,9 @@
-require "foy_ruby_parser/version"
+require "foy_ruby_handler/version"
 require "bundler"
 
 module Foy
   module Ruby
-    module Parser
+    module Handler
       class << self
         def parse(file)
           Bundler::LockfileParser.new(File.open(file, 'r').read)
