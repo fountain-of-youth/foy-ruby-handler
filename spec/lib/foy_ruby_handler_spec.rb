@@ -18,4 +18,18 @@ describe Foy::Ruby::Handler do
 
     context "gemspec" #TODO
   end
+
+  describe "#latest_version_for" do
+    let(:version) { mock(:version, version: "2.0.1") }
+
+    it "uses rubygem" do
+      Gem.should_receive(:latest_version_for).with("package").and_return(version)
+      Foy::Ruby::Handler.latest_version_for("package")
+    end
+
+    it "returns version as string" do
+      Gem.stub(:latest_version_for).with("package").and_return(version)
+      expect(Foy::Ruby::Handler.latest_version_for("package")).to be_eql("2.0.1")
+    end
+  end
 end
