@@ -12,5 +12,3 @@ module Foy::RubyHandler
     end
   end
 end
-
-Foy::RubyHandler::CLI.start
