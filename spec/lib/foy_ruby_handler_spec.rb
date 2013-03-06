@@ -4,17 +4,17 @@ describe Foy::RubyHandler do
 
   describe "#parse" do
     context "Gemfile.lock" do
-      let(:parse!) {Foy::RubyHandler.parse("spec/fixtures/Gemfile")} 
+      let(:parse!) {Foy::RubyHandler.parse("spec/fixtures/Gemfile.lock")} 
 
       it "uses bundler parser" do
         Bundler::LockfileParser.should_receive(:new)
-          .with("GEM\n  remote: http://rubygems.org/\n  specs:\n    package (1.7.1)\n")
+          .with(File.open("spec/fixtures/Gemfile.lock", 'r'))
           .and_call_original
         parse!
       end
 
       it "returns current dependencies (name and version)" do
-        expect(parse!).to be_eql("package 1.7.1")
+        expect(parse!).to be_eql("rake 10.0.3\nrspec 2.13.0")
       end
     end
 
