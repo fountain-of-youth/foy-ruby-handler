@@ -22,7 +22,7 @@ describe Foy::RubyHandler do
   end
 
   describe "#latest_version_for" do
-    let(:version) { mock(:version, version: "2.0.1") }
+    let(:version) { double(:version, version: "2.0.1") }
 
     it "uses rubygem" do
       Gem.should_receive(:latest_version_for).with("package").and_return(version)
