@@ -8,7 +8,7 @@ describe Foy::RubyHandler do
 
       it "uses bundler parser" do
         Bundler::LockfileParser.should_receive(:new)
-          .with(File.open("spec/fixtures/Gemfile.lock", 'r'))
+          .with(File.open("spec/fixtures/Gemfile.lock", 'r').read)
           .and_call_original
         parse!
       end
