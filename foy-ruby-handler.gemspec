@@ -17,8 +17,8 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_dependency('bundler', '>= 1.3.1')
+  gem.add_dependency('bundler', '>= 1.5.2')
 
-  gem.add_development_dependency('rake', '>= 10.0.3')
-  gem.add_development_dependency('rspec', '>= 2.13.0')
+  gem.add_development_dependency('rake', '>= 10.1.1')
+  gem.add_development_dependency('rspec', '>= 2.14.1')
 end
