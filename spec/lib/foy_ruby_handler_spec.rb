@@ -14,7 +14,7 @@ describe Foy::RubyHandler do
       end
 
       it "returns current dependencies (name and version)" do
-        expect(parse!).to be_eql("rake 10.0.3\nrspec 2.13.0")
+        expect(parse!).to be_eql([{name: 'rake', version: '10.0.3'}, {name: 'rspec', version: '2.13.0'}])
       end
     end
 

@@ -9,8 +9,8 @@ module Foy
         lockfile = Bundler::LockfileParser.new(File.open(file, 'r').read)
         dependencies = lockfile.dependencies.collect(&:name)
         lockfile.specs.collect do |spec|
-          "#{spec.name} #{spec.version}" if dependencies.include?(spec.name)
-        end.compact.join("\n")
+          {name: spec.name, version: spec.version.to_s} if dependencies.include?(spec.name)
+        end.compact
       end
 
       def latest_version_for(gem)
