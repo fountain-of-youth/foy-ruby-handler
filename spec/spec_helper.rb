@@ -16,4 +16,5 @@ RSpec.configure do |config|
   config.order = 'random'
 end
 
+require 'byebug'
 require 'foy_ruby_handler'

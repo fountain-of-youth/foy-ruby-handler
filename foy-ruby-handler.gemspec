@@ -19,6 +19,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency('bundler', '>= 1.5.2')
 
-  gem.add_development_dependency('rake', '>= 10.1.1')
-  gem.add_development_dependency('rspec', '>= 2.14.1')
+  gem.add_development_dependency 'rake', '>= 10.1.1'
+  gem.add_development_dependency 'rspec', '>= 2.14.1'
+  gem.add_development_dependency 'byebug'
 end
