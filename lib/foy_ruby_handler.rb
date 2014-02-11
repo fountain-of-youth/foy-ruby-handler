@@ -14,7 +14,7 @@ module Foy
       end
 
       def latest_version_for(gem)
-        Gem.latest_version_for(gem).version
+        Gem.latest_version_for(gem).version rescue nil
       end
     end
   end

@@ -33,5 +33,10 @@ describe Foy::RubyHandler do
       Gem.stub(:latest_version_for).with("package").and_return(version)
       expect(Foy::RubyHandler.latest_version_for("package")).to be_eql("2.0.1")
     end
+
+    it "returns nil if commands raises error" do
+      Gem.stub(:latest_version_for).and_raise("error")
+      expect(Foy::RubyHandler.latest_version_for("package")).to be_nil
+    end
   end
 end
